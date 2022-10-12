@@ -1,0 +1,79 @@
+
+<div class="row d-flex justify-content-between">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6" >
+            <h1 class="text-center">{{ accion }} un estudiante</h1>
+            <form [formGroup]="addEditStudentForm" class="d-flex flex-column" (submit)="guardarEstudiante()">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombre">
+                    
+                </mat-form-field>
+                <div class="form-error"  *ngIf="addEditStudentForm.get('nombre')?.hasError('required') && addEditStudentForm.get('nombre')?.touched">
+                    <span > El campo nombre es requerido</span>
+                </div>
+                <div class="form-error"  *ngIf="addEditStudentForm.get('nombre')?.hasError('maxlength') && addEditStudentForm.get('nombre')?.touched">
+                    <span > El campo nombre debe tener como maximo 20 caracteres.</span>
+                </div>
+                <div class="form-error"  *ngIf="addEditStudentForm.get('nombre')?.hasError('minlength') && addEditStudentForm.get('nombre')?.touched">
+                    <span > El campo nombre debe tener como minimo 3 caracteres.</span>
+                </div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput formControlName="apellido">
+                  </mat-form-field>
+                  <div class="form-error"  *ngIf="addEditStudentForm.get('apellido')?.hasError('required') && addEditStudentForm.get('apellido')?.touched">
+                    <span > El campo apellido es requerido</span>
+                </div>
+                <div class="form-error"  *ngIf="addEditStudentForm.get('apellido')?.hasError('maxlength') && addEditStudentForm.get('apellido')?.touched">
+                    <span > El campo apellido debe tener como maximo 25 caracteres.</span>
+                </div>
+                <div class="form-error"  *ngIf="addEditStudentForm.get('apellido')?.hasError('minlength') && addEditStudentForm.get('apellido')?.touched">
+                    <span > El campo apellido debe tener como minimo 3 caracteres.</span>
+                </div>
+
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                  </mat-form-field>
+                  <div class="form-error"  *ngIf="addEditStudentForm.get('email')?.hasError('required') && addEditStudentForm.get('email')?.touched">
+                    <span > El campo email es requerido</span>
+                </div>
+                <div class="form-error"  *ngIf=" addEditStudentForm.get('email')?.hasError('pattern')&& addEditStudentForm.get('email')?.touched ">
+                    <span > El email ingresado no es valido.</span>
+                </div>
+        
+
+
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Elige la fecha de registro</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="fechaRegistro">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                  </mat-form-field>
+
+                  <div class="form-error"  *ngIf="addEditStudentForm.get('fecha')?.hasError('required') && addEditStudentForm.get('fecha')?.touched">
+                    <span > El campo fecha es requerido</span>
+                    </div>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput formControlName="telefono">
+                  </mat-form-field>
+
+                  <div class="form-error"  *ngIf="addEditStudentForm.get('telefono')?.hasError('required') && addEditStudentForm.get('telefono')?.touched">
+                    <span > El campo telefono es requerido</span>
+                    </div>
+
+                  <div class="form-btn-container">
+                    <button mat-raised-button type="submit"color="primary" [disabled]="addEditStudentForm.invalid" >{{accion}}</button>
+                    <button mat-raised-button color="warn" routerLink="/">Cancelar</button>
+                </div>
+            </form>
+            
+        </div>    
+        <div class="col-lg-3"></div>    
+
+</div>

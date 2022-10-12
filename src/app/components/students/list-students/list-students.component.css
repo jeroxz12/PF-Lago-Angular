@@ -1,0 +1,15 @@
+/* Structure */
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  .action-btn{
+    cursor: pointer;
+  }
+  .action-btn:hover{
+    color: rgb(171, 171, 171);
+  }
