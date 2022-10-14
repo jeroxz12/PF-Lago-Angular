@@ -6,7 +6,7 @@ import { StudentService } from 'src/app/services/student.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MensajeConfirmacionComponent } from '../../shared/mensaje-confirmacion/mensaje-confirmacion.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { NombreApellidoPipe } from 'src/app/pipes/nombreapellido.pipe';
 @Component({
   selector: 'app-list-students',
   templateUrl: './list-students.component.html',
@@ -17,7 +17,7 @@ export class ListStudentsComponent implements OnInit {
   studentsList: Student[] = [];
   displayedColumns: string[] = ['nombreCompleto', 'email', 'fechaIngreso', 'telefono', 'acciones'];
   dataSource = new MatTableDataSource<Student>();
-
+  
   constructor(private studentService: StudentService, public dialog:MatDialog, public snackBar:MatSnackBar) { 
 
   }
