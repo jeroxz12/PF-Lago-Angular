@@ -15,9 +15,13 @@ import { NombreApellidoPipe } from 'src/app/pipes/nombreapellido.pipe';
 export class ListStudentsComponent implements OnInit {
    
   studentsList: Student[] = [];
-  displayedColumns: string[] = ['nombreCompleto', 'email', 'fechaIngreso', 'telefono', 'acciones'];
+  displayedColumns: string[] = ['nombreCompleto', 'email', 'fechaIngreso', 'telefono', 'acciones', 'cuota'];
   dataSource = new MatTableDataSource<Student>();
-  
+  cuota = new Promise<string>((resolve) => {
+    setTimeout(() => {
+        resolve( 'Cuota Paga');
+    }, 2000);
+  })
   constructor(private studentService: StudentService, public dialog:MatDialog, public snackBar:MatSnackBar) { 
 
   }

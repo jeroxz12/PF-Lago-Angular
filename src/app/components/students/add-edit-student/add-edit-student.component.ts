@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -14,7 +15,7 @@ export class AddEditStudentComponent implements OnInit {
 
   addEditStudentForm: FormGroup;
   idEstudiante!:number;
-  accion:string = "Agregar"
+  accion:string = "Agregar";
 
   constructor(private fb:FormBuilder, private snackBar:MatSnackBar, private router:Router, private studentService:StudentService, private aRoute:ActivatedRoute) {
     this.addEditStudentForm = this.fb.group({
@@ -30,12 +31,12 @@ export class AddEditStudentComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    if(this.idEstudiante !== undefined){
+    
       this.accion = 'Editar';
       this.estudianteAEditar();
     }
     
-  }
+  
 
   guardarEstudiante():void{
     const estudiante:Student = {

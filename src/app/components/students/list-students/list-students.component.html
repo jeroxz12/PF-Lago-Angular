@@ -48,6 +48,13 @@
       </a>
     </td>
   </ng-container>
+  <ng-container matColumnDef="cuota">
+    <th mat-header-cell *matHeaderCellDef> Cuota </th>
+    <td mat-cell *matCellDef="">
+      {{cuota | async}}
+    </td>
+  </ng-container>
+
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
